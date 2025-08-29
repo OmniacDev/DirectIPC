@@ -1,0 +1,34 @@
+{
+  "name": "@mcbe-ipc/direct",
+  "author": "OmniacDev",
+  "description": "MCBE-IPC extension providing secure, end-to-end communication between packs",
+  "license": "MIT",
+  "version": "1.0.0",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/OmniacDev/DirectIPC.git"
+  },
+  "bugs": {
+    "url": "https://github.com/OmniacDev/DirectIPC/issues"
+  },
+  "homepage": "https://github.com/OmniacDev/DirectIPC",
+  "type": "module",
+  "main": "dist/direct.ipc.js",
+  "types": "dist/direct.ipc.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "format": "prettier --write src",
+    "prepublishOnly": "npm run build"
+  },
+  "devDependencies": {
+    "prettier": "^3.3.3",
+    "typescript": "^5.5.4"
+  },
+  "dependencies": {
+    "@minecraft/server": "^1.18.0",
+    "mcbe-ipc": "^3.0.4"
+  }
+}
