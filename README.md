@@ -4,9 +4,9 @@
 
 ## 🔗 Dependencies
 
-| Name | Version |
-|---|---|
-| `mcbe-ipc` | 3.0.4 |
+|    Name    | Version |
+|:----------:|:-------:|
+| `mcbe-ipc` |  3.1.0  |
 
 ## 🚀 Installation
 
