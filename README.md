@@ -18,6 +18,6 @@ npm install @mcbe-ipc/direct
 ### 🛠 Manual
 1. Ensure [MCBE-IPC](https://github.com/OmniacDev/MCBE-IPC) is installed.
 2. Download the applicable file(s) for your language from the latest [release](https://github.com/OmniacDev/DirectIPC/releases/latest):
-   - For **JavaScript**: `direct.ipc.js` and `direct.ipc.d.ts`
-   - For **TypeScript**: `direct.ipc.ts`
+   - For **JavaScript**: `direct.js` and `direct.d.ts`
+   - For **TypeScript**: `direct.ts`
 3. Place the downloaded file(s) in the same directory as your existing `ipc.js` or `ipc.ts`.

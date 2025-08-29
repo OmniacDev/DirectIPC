@@ -13,8 +13,8 @@
   },
   "homepage": "https://github.com/OmniacDev/DirectIPC",
   "type": "module",
-  "main": "dist/direct.ipc.js",
-  "types": "dist/direct.ipc.d.ts",
+  "main": "dist/direct.js",
+  "types": "dist/direct.d.ts",
   "files": [
     "dist"
   ],
