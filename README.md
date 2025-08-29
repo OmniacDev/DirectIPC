@@ -1,20 +1,23 @@
-# MCBE-IPC 📡
+# DirectIPC 🔒
 
-An IPC[^1] system for MCBE Script API projects
+[MCBE-IPC](https://github.com/OmniacDev/MCBE-IPC) extension providing secure, end-to-end communication between packs
 
-[^1]: Inter-Pack Communication
-
-## Dependencies
+## 🔗 Dependencies
 
 | Name | Version |
 |---|---|
-| `@minecraft/server` | Any |
+| `mcbe-ipc` | 3.0.4 |
 
-## Installation
-**JavaScript**
-1. Download `ipc.js` and `ipc.d.ts` from the latest [release](https://github.com/OmniacDev/MCBE-IPC/releases/latest)
-2. Copy the files into your project
+## 🚀 Installation
 
-**TypeScript**
-1. Download `ipc.ts` from the latest [release](https://github.com/OmniacDev/MCBE-IPC/releases/latest)
-2. Copy file into your project
+### 📦 NPM
+```bash
+npm install @mcbe-ipc/direct
+```
+
+### 🛠 Manual
+1. Ensure [MCBE-IPC](https://github.com/OmniacDev/MCBE-IPC) is installed.
+2. Download the applicable file(s) for your language from the latest [release](https://github.com/OmniacDev/DirectIPC/releases/latest):
+   - For **JavaScript**: `direct.ipc.js` and `direct.ipc.d.ts`
+   - For **TypeScript**: `direct.ipc.ts`
+3. Place the downloaded file(s) in the same directory as your existing `ipc.js` or `ipc.ts`.
