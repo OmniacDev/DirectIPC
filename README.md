@@ -6,7 +6,7 @@
 
 |    Name    | Version |
 |:----------:|:-------:|
-| `mcbe-ipc` |  3.1.0  |
+| `mcbe-ipc` |  3.1.2  |
 
 ## 🚀 Installation
 
