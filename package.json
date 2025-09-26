@@ -29,6 +29,6 @@
   },
   "dependencies": {
     "@minecraft/server": "^1.18.0",
-    "mcbe-ipc": "^3.1.2"
+    "mcbe-ipc": "^3.1.3"
   }
 }
