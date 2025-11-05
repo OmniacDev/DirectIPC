@@ -183,11 +183,7 @@ export namespace DirectIPC {
       })
     }
 
-    on<S extends PROTO.Serializable<any>>(
-      channel: string,
-      deserializer: S,
-      listener: (value: PROTO.Infer<S>) => void
-    ) {
+    on<S extends PROTO.Serializable<any>>(channel: string, deserializer: S, listener: (value: PROTO.Infer<S>) => void) {
       const $ = this
       const terminate = NET.listen(`ipc:${$._from}:connection:${channel}:send`, ConnectionSerializer, function* (data) {
         if (data.from === $._to) {
@@ -409,11 +405,7 @@ export namespace DirectIPC {
       return promises
     }
 
-    on<S extends PROTO.Serializable<any>>(
-      channel: string,
-      deserializer: S,
-      listener: (value: PROTO.Infer<S>) => void
-    ) {
+    on<S extends PROTO.Serializable<any>>(channel: string, deserializer: S, listener: (value: PROTO.Infer<S>) => void) {
       const $ = this
       return NET.listen(`ipc:${$._id}:manager:${channel}:send`, ConnectionSerializer, function* (data) {
         const enc = $._enc_map.get(data.from) as string | false
