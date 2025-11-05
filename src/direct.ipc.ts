@@ -132,7 +132,7 @@ export namespace DirectIPC {
       }
     }
 
-    send<S extends PROTO.Serializable<T>, T>(channel: string, serializer: S & PROTO.Serializable<T>, value: T): void {
+    send<S extends PROTO.Serializable<any>>(channel: string, serializer: S, value: PROTO.Infer<S>): void {
       const $ = this
       system.runJob(
         (function* () {
@@ -147,12 +147,12 @@ export namespace DirectIPC {
       )
     }
 
-    invoke<TS extends PROTO.Serializable<T>, T, RS extends PROTO.Serializable<R>, R>(
+    invoke<S extends PROTO.Serializable<any>, D extends PROTO.Serializable<any>>(
       channel: string,
-      serializer: TS & PROTO.Serializable<T>,
-      value: T,
-      deserializer: RS & PROTO.Serializable<R>
-    ): Promise<R> {
+      serializer: S,
+      value: PROTO.Infer<S>,
+      deserializer: D
+    ): Promise<PROTO.Infer<D>> {
       const $ = this
       system.runJob(
         (function* () {
@@ -183,10 +183,10 @@ export namespace DirectIPC {
       })
     }
 
-    on<S extends PROTO.Serializable<T>, T>(
+    on<S extends PROTO.Serializable<any>>(
       channel: string,
-      deserializer: S & PROTO.Serializable<T>,
-      listener: (value: T) => void
+      deserializer: S,
+      listener: (value: PROTO.Infer<S>) => void
     ) {
       const $ = this
       const terminate = NET.listen(`ipc:${$._from}:connection:${channel}:send`, ConnectionSerializer, function* (data) {
@@ -201,10 +201,10 @@ export namespace DirectIPC {
       return terminate
     }
 
-    once<S extends PROTO.Serializable<T>, T>(
+    once<S extends PROTO.Serializable<any>>(
       channel: string,
-      deserializer: S & PROTO.Serializable<T>,
-      listener: (value: T) => void
+      deserializer: S,
+      listener: (value: PROTO.Infer<S>) => void
     ) {
       const $ = this
       const terminate = NET.listen(`ipc:${$._from}:connection:${channel}:send`, ConnectionSerializer, function* (data) {
@@ -220,11 +220,11 @@ export namespace DirectIPC {
       return terminate
     }
 
-    handle<TS extends PROTO.Serializable<T>, T, RS extends PROTO.Serializable<R>, R>(
+    handle<D extends PROTO.Serializable<any>, S extends PROTO.Serializable<any>>(
       channel: string,
-      deserializer: TS & PROTO.Serializable<T>,
-      serializer: RS & PROTO.Serializable<R>,
-      listener: (value: T) => R
+      deserializer: D,
+      serializer: S,
+      listener: (value: PROTO.Infer<D>) => PROTO.Infer<S>
     ) {
       const $ = this
       const terminate = NET.listen(
@@ -349,7 +349,7 @@ export namespace DirectIPC {
       })
     }
 
-    send<S extends PROTO.Serializable<T>, T>(channel: string, serializer: S & PROTO.Serializable<T>, value: T): void {
+    send<S extends PROTO.Serializable<any>>(channel: string, serializer: S, value: PROTO.Infer<S>): void {
       const $ = this
       system.runJob(
         (function* () {
@@ -366,12 +366,12 @@ export namespace DirectIPC {
       )
     }
 
-    invoke<TS extends PROTO.Serializable<T>, T, RS extends PROTO.Serializable<R>, R>(
+    invoke<S extends PROTO.Serializable<any>, D extends PROTO.Serializable<any>>(
       channel: string,
-      serializer: TS & PROTO.Serializable<T>,
-      value: T,
-      deserializer: RS & PROTO.Serializable<R>
-    ): Promise<R>[] {
+      serializer: S,
+      value: PROTO.Infer<S>,
+      deserializer: D
+    ): Promise<PROTO.Infer<D>>[] {
       const $ = this
       const promises: Promise<any>[] = []
 
@@ -409,10 +409,10 @@ export namespace DirectIPC {
       return promises
     }
 
-    on<S extends PROTO.Serializable<T>, T>(
+    on<S extends PROTO.Serializable<any>>(
       channel: string,
-      deserializer: S & PROTO.Serializable<T>,
-      listener: (value: T) => void
+      deserializer: S,
+      listener: (value: PROTO.Infer<S>) => void
     ) {
       const $ = this
       return NET.listen(`ipc:${$._id}:manager:${channel}:send`, ConnectionSerializer, function* (data) {
@@ -426,10 +426,10 @@ export namespace DirectIPC {
       })
     }
 
-    once<S extends PROTO.Serializable<T>, T>(
+    once<S extends PROTO.Serializable<any>>(
       channel: string,
-      deserializer: S & PROTO.Serializable<T>,
-      listener: (value: T) => void
+      deserializer: S,
+      listener: (value: PROTO.Infer<S>) => void
     ) {
       const $ = this
       const terminate = NET.listen(`ipc:${$._id}:manager:${channel}:send`, ConnectionSerializer, function* (data) {
@@ -445,11 +445,11 @@ export namespace DirectIPC {
       return terminate
     }
 
-    handle<TS extends PROTO.Serializable<T>, T, RS extends PROTO.Serializable<R>, R>(
+    handle<D extends PROTO.Serializable<any>, S extends PROTO.Serializable<any>>(
       channel: string,
-      deserializer: TS & PROTO.Serializable<T>,
-      serializer: RS & PROTO.Serializable<R>,
-      listener: (value: T) => R
+      deserializer: D,
+      serializer: S,
+      listener: (value: PROTO.Infer<D>) => PROTO.Infer<S>
     ) {
       const $ = this
       return NET.listen(`ipc:${$._id}:manager:${channel}:invoke`, ConnectionSerializer, function* (data) {
